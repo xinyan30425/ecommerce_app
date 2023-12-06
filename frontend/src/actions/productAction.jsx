@@ -44,12 +44,12 @@ export const getProduct = (
       dispatch({
         type: ALL_PRODUCT_REQUEST,
       });
-
-      let link = `/api/v1/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
+      const API_BASE_URL = 'http://localhost:8080'
+      let link = `${API_BASE_URL}/api/v1/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}`;
 
       // when category selected by user then using another link
       if (category) {
-        link = `/api/v1/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}&category=${category}`;
+        link = `${API_BASE_URL}/api/v1/product?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&ratings[gte]=${ratings}&category=${category}`;
       }
       const { data } = await axios.get(link);
 

@@ -9,23 +9,22 @@ const cloudinary = require("cloudinary");
 
 // signUp controller>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.registerUser = asyncWrapper(async (req, res) => {
-  const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-    folder: "Avatar", // this folder cloudainry data base manage by us
-    width: 150,
-    crop: "scale",
-  });
 
-
+  // const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
+  //   folder: "Avatar", // this folder cloudainry data base manage by us
+  //   width: 150,
+  //   crop: "scale",
+  // });
 
   const { name, email, password } = req.body;
   const user = await userModel.create({
     name,
     password,
     email,
-    avatar: {
-      public_id: myCloud.public_id,
-      url: myCloud.secure_url,
-    },
+    // avatar: {
+    //   public_id: myCloud.public_id,
+    //   url: myCloud.secure_url,
+    // },
   });
 
   // sending the res and staus code along with token using sendJWtToken method
