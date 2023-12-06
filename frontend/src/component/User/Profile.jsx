@@ -65,11 +65,11 @@ const ProfilePage = () => {
             Profile Overview
           </h4>
           <div className="profileSection">
-            <Avatar
+            {user.avatar && <Avatar
               alt={user.name}
               src={user.avatar.url}
               className="profileAvatar"
-            />
+            />}
             <div className="leftDetails">
               <Typography className="profileText">
                 <h5 className="profileSubHeading">Name :</h5>

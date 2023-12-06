@@ -25,16 +25,16 @@ const userSchema = new mongoose.Schema({
     minLength: [8, "Password should have more than 4 characters"],
     select: false, // this will make sure password is sended with data to anyone not even admin when he req for user data
   },
-  // avatar: {
-  //   public_id: {
-  //     type: String,
-  //     required: true,
-  //   },
-  //   url: {
-  //     type: String,
-  //     required: true,
-  //   },
-  // },
+  avatar: {
+    public_id: {
+      type: String,
+      required: false,
+    },
+    url: {
+      type: String,
+      required: false,
+    },
+  },
   role: {
     type: String,
     default: "user",

@@ -63,7 +63,6 @@ function Products() {
       dispatch(clearErrors());
     }
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, keyword, currentPage, price, ratings, category]);
 
   const setCurrentPageNoHandler = (e) => {

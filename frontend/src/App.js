@@ -87,13 +87,11 @@ function App() {
     } else {
       getStripeApiKey();
     }
-    // eslint-disable-next-line
+
   }, []);
 
   useEffect(() => {
     dispatch(load_UserProfile());
-
-    // eslint-disable-next-line
   }, []);
 
   return (

@@ -362,7 +362,6 @@ function ProcessOrder() {
       dispatch({ type: UPDATE_ORDER_RESET });
     }
     dispatch(getOrderDetails(productId)); 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, alert, error, isUpdated, updateError, productId]);
 
   const updateOrderSubmitHandler = (e) => {

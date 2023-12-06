@@ -58,7 +58,6 @@ useEffect(() => {
     dispatch({ type: PRODUCT_DETAILS_RESET });
   }
   dispatch(getProductDetails(match.params.id));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [
   dispatch,
   error,
@@ -75,9 +74,6 @@ useEffect(() => {
     dispatch(addItemToCart(match.params.id, quantity));
     alert.success("Item Added To Cart");
   };
-
-
-
 
 
   // handling Preview image

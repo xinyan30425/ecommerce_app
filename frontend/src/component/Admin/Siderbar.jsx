@@ -123,6 +123,7 @@ function accountHandler() {
               alt="User Avatar"
               className={classes.avatar11}
             />
+            
             <Typography variant="subtitle1" className={classes.name}>
               {user && user.name}
             </Typography>

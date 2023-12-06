@@ -48,16 +48,14 @@ export function login(email, password) {
       dispatch({ type: LOGIN_REQUEST });
 
       const config = { headers: { "Content-Type": "application/json" } };
-      const API_BASE_URL = 'http://localhost:8080'
       const { data } = await axios.post(
-        `${API_BASE_URL}/api/v1/login`,
+        `/api/v1/login`,
         { email, password },
         config
       );
 
       dispatch({ type: LOGIN_SUCCESS, payload: data.user });
     } catch (error) {
-
       dispatch({ type: LOGIN_FAIL, payload: error.message });
     }
   };
@@ -71,9 +69,8 @@ export function signUp(signupData) {
       const config = {
         headers: { "Content-Type": "multipart/form-data" },
       };
-      const API_BASE_URL = 'http://localhost:8080';
       const { data } = await axios.post(
-        `${API_BASE_URL}/api/v1/register`,
+        `/api/v1/register`,
         signupData,
         config
       );
@@ -104,10 +101,9 @@ export const load_UserProfile = () => async (dispatch) => {
       const user = JSON.parse(userData);
        dispatch({ type: LOAD_USER_SUCCESS, payload: user });
     } else {
-      const API_BASE_URL = 'http://localhost:8080';
 
       // If user data is not available in session storage, make a backend API call
-      const { data } = await axios.get(`${API_BASE_URL}api/v1/profile`);
+      const { data } = await axios.get(`api/v1/profile`);
    
       dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
 

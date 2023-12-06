@@ -66,7 +66,6 @@ function OrderList() {
 
     }
     dispatch(getAllOrders());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, error, alert , isDeleted , deleteError]);
 
   // delet order handler
