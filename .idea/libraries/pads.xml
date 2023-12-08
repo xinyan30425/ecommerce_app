@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pads">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/frontend/src/Image/products/pad/pads.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="zip2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/frontend/src/Image/products/balls/zip.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
