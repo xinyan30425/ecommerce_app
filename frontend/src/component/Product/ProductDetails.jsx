@@ -39,31 +39,31 @@ const ProductDetails = () => {
   const [previewImg, setPreviewImg] = useState("");
   const { handleActive, activeClass } = useActive(0);
 
-  const { product, loading, error , success  } = useSelector(
+  const { product, loading, error, success } = useSelector(
     (state) => state.productDetails
   );
 
 
-useEffect(() => {
-  if (error) {
-    alert.error(error);
-    dispatch(clearErrors);
-  }
-  if (success) {
-    setPreviewImg(product.images[0].url);
+  useEffect(() => {
+    if (error) {
+      alert.error(error);
+      dispatch(clearErrors);
+    }
+    if (success) {
+      setPreviewImg(product.images[0].url);
 
-    handleActive(0);
-    dispatch({ type: PRODUCT_DETAILS_RESET });
-  }
-  dispatch(getProductDetails(match.params.id));
-}, [
-  dispatch,
-  error,
-  alert,
-  success,
-  match.params.id,
+      handleActive(0);
+      dispatch({ type: PRODUCT_DETAILS_RESET });
+    }
+    dispatch(getProductDetails(match.params.id));
+  }, [
+    dispatch,
+    error,
+    alert,
+    success,
+    match.params.id,
 
-]);
+  ]);
 
 
   // handling Add-to-cart
@@ -76,7 +76,7 @@ useEffect(() => {
 
   // handling Preview image
   const handlePreviewImg = (images, i) => {
-   
+
     setPreviewImg(images[i].url);
     handleActive(i);
   };
