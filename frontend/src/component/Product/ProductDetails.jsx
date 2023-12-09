@@ -36,8 +36,6 @@ const ProductDetails = () => {
 
   const [quantity, setQuantity] = useState(1);
 
-
-
   const [previewImg, setPreviewImg] = useState("");
   const { handleActive, activeClass } = useActive(0);
 
@@ -167,12 +165,6 @@ useEffect(() => {
                             <del>{oldPrice}</del>
                           </small>
                         </h2>
-                        <p className="saved_price">
-                          You save: {savedPrice} ({savedDiscount}%)
-                        </p>
-                        <span className="tax_txt">
-                          (Inclusive of all taxes)
-                        </span>
                       </div>
 
                       <div className="badge">
@@ -195,17 +187,6 @@ useEffect(() => {
                       <div className="productDiscriptiopn_text">
                         <h4>Descripition :</h4>
                         <p>{product.description}</p>
-                      </div>
-                      <div className="prod_details_offers">
-                        <h4>Offers and Discounts</h4>
-                        <ul>
-                          <li>No Cost EMI on Credit Card</li>
-                          <li>Pay Later & Avail Cashback</li>
-                        </ul>
-                      </div>
-                      <div className="deliveryText">
-                        <LocalShippingOutlinedIcon />
-                        We deliver! Just say when and how.
                       </div>
                     </div>
                     <div className="seprator2"></div>

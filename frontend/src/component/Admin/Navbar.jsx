@@ -61,45 +61,6 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1.8rem",
     },
   },
-  contactButton: {
-    padding: "10px 30px",
-    borderRadius: "20px",
-    boxShadow: "0px 2px 8px 0px #0000000a",
-    cursor: "pointer",
-    fontWeight: 600,
-    fontSize: "16px",
-    color: "#fff",
-    letterSpacing: "1px",
-    background: "#414141",
-    transition: "background-color 0.3s",
-    marginRight: "2rem",
-    // Responsive styles
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "14px",
-      padding: "8px 14px",
-    },
-    [theme.breakpoints.between("sm", "md")]: {
-      fontSize: "14px",
-      padding: "7px 15px",
-    },
-    [theme.breakpoints.down("xs")]: {
-      display: "none",
-    },
-
-    "&:hover": {
-      background: "#ed1c24",
-    },
-  },
-  headerBottom__logo_main: {
-    height: "3.5rem",
-    alignSelf: "center",
-    paddingLeft: "25px",
-  "& img": {
-    height: "100%",
-    width: "auto",
-  },
-
-  },
 })); 
 
 const Navbar = ({ toggleHandler }) => {
@@ -115,19 +76,9 @@ const Navbar = ({ toggleHandler }) => {
           to="/admin/dashboard"
           style={{ textDecoration: "none", color: "none" , width: "100%" , height: "100%"}}
         >
-          <img
-            src={require("../../Image/logo.png")}
-            alt="logo"
-            className={classes.headerBottom__logo_main}
-          />
+
         </Link>
       </div>
-      <Link
-        to="/contact"
-        style={{ textDecoration: "none", color: "none" }}
-      >
-        <Button className={classes.contactButton}>Contact Us</Button>
-      </Link>
     </nav>
   );
 };

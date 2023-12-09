@@ -5,7 +5,6 @@ import { useAlert } from "react-alert";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import OrderDetailsSection from "./OrderDetails";
-import DummyCard from "./DummyCard";
 import { clearErrors, createOrder } from "../../actions/orderAction";
 import CheckoutSteps from "./CheckoutSteps ";
 
@@ -39,7 +38,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AssuredWorkloadOutlinedIcon from "@mui/icons-material/AssuredWorkloadOutlined";
 import { ReactComponent as MasterCard } from "../../Image/payment-svg/mastercard.svg";
 import { ReactComponent as Visa } from "../../Image/payment-svg/visa (1).svg";
-import { ReactComponent as Paytm } from "../../Image/payment-svg/paytm.svg";
 import {
   dispalyMoney,
   generateDiscountedPrice,
@@ -342,15 +340,13 @@ const PaymentComponent = () => {
   const elements = useElements();
   const dispatch = useDispatch();
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
-  // const { user, loading } = useSelector((state) => state.userData);
   const user = JSON.parse(sessionStorage.getItem("user"));
 
   const { error } = useSelector((state) => state.newOrder);
   const [isFocused, setIsFocused] = useState(false);
   const [nameOnCard, setNameOnCard] = React.useState("");
-  const [couponCode, setCouponCode] = useState("");
   const [isValid, setIsValid] = useState(true);
-    const [showDummyCard, setShowDummyCard] = useState(false);
+
 
 
   const subTotal = cartItems.reduce((acc, currItem) => {
@@ -363,29 +359,13 @@ const PaymentComponent = () => {
     setNameOnCard(e.target.value);
   };
 
-  const handleApplyCoupon = () => {
-    // handle apply coupon logic
-    setIsValid(false);
-  };
-
   const handleFocus = (event) => {
     setIsFocused(event.target.value !== "");
   };
 
-
-  
-    const handleRadioChange = () => {
-      setShowDummyCard(!showDummyCard);
-    };
-
-    const handleCloseDummyCard = () => {
-      setShowDummyCard(false);
-    };
-
-
   const address = `${shippingInfo.address} , ${shippingInfo.city} ${
     shippingInfo.state
-  } , ${shippingInfo.pinCode} , ${shippingInfo.country || "India"}`;
+  } , ${shippingInfo.pinCode} , ${shippingInfo.country || "United States"}`;
 
   const order = {
     shippingInfo,
@@ -509,16 +489,6 @@ const PaymentComponent = () => {
               >
                 Payment method
               </Typography>
-              <Typography
-                variant="subtitle2"
-                gutterBottom
-                className={classes.securePayemnt}
-              >
-                <AssuredWorkloadOutlinedIcon />
-                Payments are SSL encrypted so that your credit card and payment
-                details stay safe.
-              </Typography>
-
               <div className={classes.cardContainer}>
                 <Typography variant="h6" className={classes.subHeading}>
                   Credit Card <CreditCard fontSize="medium" />
@@ -545,12 +515,6 @@ const PaymentComponent = () => {
                         }}
                       />
                       <Visa
-                        style={{
-                          width: "5%",
-                          height: "auto",
-                        }}
-                      />
-                      <Paytm
                         style={{
                           width: "5%",
                           height: "auto",
@@ -601,28 +565,10 @@ const PaymentComponent = () => {
                   </Grid>
                 </Grid>
               </div>
-
-              <div className={classes.cardSelection}>
-                <Radio
-                  value="dummyCard"
-                  className={classes.radio}
-                  checked={showDummyCard}
-                  onChange={handleRadioChange}
-                />
-                <Typography variant="subtitle2" className={classes.radioText}>
-                  Use dummy card
-                </Typography>
-                <CreditCard fontSize="medium" />
-                {showDummyCard && <DummyCard onClose={handleCloseDummyCard} />}
-              </div>
               <Typography
                 variant="body2"
                 className={classes.termsAndConditionsText}
               >
-                By clicking "Place Order", you agree to our
-                <Link href="#" className={classes.privacyText}>
-                  Cricket Weapon Terms & Conditions
-                </Link>
               </Typography>
               <Button
                 variant="contained"
@@ -674,7 +620,6 @@ const PaymentComponent = () => {
                           color: "#414141",
                         }}
                       >
-                        (Inclusive of all taxes)
                       </p>
                     </div>
                     <p>
@@ -686,44 +631,6 @@ const PaymentComponent = () => {
 
               <div className="separator"></div>
 
-              <div className="coupon-box-wrapper">
-                <div
-                  className={`coupon-box-content ${isFocused ? "focused" : ""}`}
-                >
-                  <TextField
-                    label="Enter coupon code"
-                    value={couponCode}
-                    onChange={(e) => setCouponCode(e.target.value)}
-                    onFocus={handleFocus}
-                    onBlur={() => setIsFocused(false)}
-                    error={!isValid}
-                    helperText={!isValid && "Invalid coupon code"}
-                    variant="outlined"
-                    size="small"
-                    style={{
-                      width: "200px",
-                      marginRight: "1rem",
-                    }}
-                  />
-
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className="coupon-box-apply-btn"
-                    onClick={handleApplyCoupon}
-                  >
-                    Apply
-                  </Button>
-                </div>
-              </div>
-
-              <div className="paymentLogoImg">
-                <img
-                  src={require("../../Image/cart/cart_img.png")}
-                  alt="payemnt-icons"
-                  className="paymentImg"
-                />
-              </div>
               <div className={classes.order_Details}>
                 <h5 className={classes.orderSub_heading}>ORDER DETAILS</h5>
                 {cartItems &&

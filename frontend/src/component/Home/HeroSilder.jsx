@@ -87,34 +87,34 @@ const useStyles = makeStyles((theme) => ({
 
 const slides = [
   {
-    image: require("../../Image/Cricket-wepon/img2.png"),
+    image: require("../../Image/Cover-page/01.png"),
     quote:
-      "Unleash Your Passion for Cricket and Embrace the Thrill of the Game",
+      "Dive into the Digital World: Master Computer Science with Our Expert-Curated Textbooks",
     saleText:
-      "Get in the game with up to 50% off on a wide range of cricket gear's",
-    productText: "Shop Now",
+      "Unlock the Secrets of Technology: Save up to 40% on our Top Computer Science Collections!",
+    productText: "Start Learning",
   },
   {
-    image: require("../../Image/Cricket-wepon/03.jpg"),
+    image: require("../../Image/Cover-page/02.png"),
     quote:
-      "Experience the Unparalleled Excitement and Achieve Victory with Our Premium Cricket Equipment",
+      "Empower Your Future: Explore Cutting-Edge Computer Science Knowledge",
     saleText:
-      "Limited Time Offer: Don't miss out on the opportunity to upgrade your game",
-    productText: "Buy Now",
+      "Exclusive Offer: Equip yourself with the latest computer science knowledge at unbeatable prices!",
+    productText: "Get Your Copy",
   },
   {
-    image: require("../../Image/Cricket-wepon/01.jpg"),
+    image: require("../../Image/Cover-page/03.png"),
     quote:
-      "Gear up with the Latest Innovations and Dominate the Field like Never Before",
-    saleText: "Discover New Arrivals and stay ahead of the competition",
-    productText: "Explore",
+      "Transform Your Understanding of Technology with Our Comprehensive Computer Science Texts",
+    saleText: "Step Ahead in Your Career: Discover our Newly Released Computer Science Books",
+    productText: "Browse Now",
   },
   {
-    image: require("../../Image/Cricket-wepon/04.jpg"),
+    image: require("../../Image/Cover-page/04.png"),
     quote:
-      "Elevate Your Performance and Unleash Your True Cricketing Potential with Our Cutting-Edge Gear",
-    saleText: "New Arrivals: Enhance your skills and excel on the field",
-    productText: "Upgrade Now",
+      "Uncover the Mysteries of Programming and Data with Our Advanced Computer Science Guides",
+    saleText: "Upgrade Your Tech Knowledge: Find the Perfect Computer Science Book for You",
+    productText: "Shop Today",
   },
 ];
 

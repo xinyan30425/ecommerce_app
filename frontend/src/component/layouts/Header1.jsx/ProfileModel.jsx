@@ -112,7 +112,7 @@ const ProfileModal = ({ user, isAuthenticated }) => {
             {!isAuthenticated ? (
               <div className="welcome-message">
                 <strong>Welcome!</strong>
-                <p>To access your account and manage orders, please log in.</p>
+                {/*<p>To access your account and manage orders, please log in.</p>*/}
               </div>
             ) : (
               <>

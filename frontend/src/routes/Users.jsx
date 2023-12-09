@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, useLocation } from "react-router-dom";
 import Header from "../component/layouts/Header1.jsx/Header";
-import Footer from "../component/layouts/Footer/Footer";
-import Services from "../component/layouts/Footer/Service";
 import Home from "../component/Home/Home";
 import ProductDetails from "../component/Product/ProductDetails";
 import Products from "../component/Product/Products";
@@ -12,12 +10,6 @@ import ConfirmOrder from "../component/Cart/ConfirmOrder";
 import Payment from "../component/Cart/Payment";
 import OrderSuccess from "../component/Cart/OrderSuccess";
 import MyOrder from "../component/order/MyOrder";
-import ContactForm from "../component/layouts/About/Contact";
-import AboutUsPage from "../component/layouts/About/Aboutus";
-import ReturnPolicyPage from "../Terms&Condtions/Return";
-import TermsUse from "../Terms&Condtions/TermsAndUse";
-import TermsAndConditions from "../Terms&Condtions/TermsCondtion";
-import PrivacyPolicy from "../Terms&Condtions/Privacy";
 import Signup from "../component/User/SignUp";
 import Login from "../component/User/Login";
 import Profile from "../component/User/Profile";
@@ -101,26 +93,12 @@ function Users() {
           <Route exact path="/cart">
             <Cart />
           </Route>
-
-          <Route exact path="/policy/return">
-            <ReturnPolicyPage />
-          </Route>
-          <Route exact path="/policy/Terms">
-            <TermsUse />
-          </Route>
-          <Route exact path="/policy/privacy">
-            <PrivacyPolicy />
-          </Route>
           <Route exact path="/terms/conditions">
             <TermsAndConditions />
           </Route>
           <Route exact path="/contact">
             <ContactForm />
           </Route>
-          <Route exact path="/about_us">
-            <AboutUsPage />
-          </Route>
-
           <PrivateRoute exact path="/account" component={Profile} />
           <PrivateRoute
             exact
@@ -142,9 +120,6 @@ function Users() {
           />
           <PrivateRoute exact path="/success" component={OrderSuccess} />
         </Switch>
-
-        <Services />
-        <Footer />
       </Router>
     </>
   );

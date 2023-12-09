@@ -494,7 +494,6 @@ function ProcessOrder() {
                         color: "#414141",
                       }}
                     >
-                      (Inclusive of all taxes)
                     </p>
                   </div>
                   <p>

@@ -78,7 +78,7 @@ const Shipping = () => {
   const [city, setCity] = React.useState(shippingInfo.city);
   const [pinCode, setPinCode] = React.useState(shippingInfo.pinCode);
   const [state, setState] = React.useState(shippingInfo.state);
-  const [country, setCountry] = React.useState(shippingInfo.country || "India");
+  const [country, setCountry] = React.useState(shippingInfo.country || "United States");
   const [phoneNo, setPhone] = React.useState(shippingInfo.phoneNo || "");
   const [email, setEmail] = React.useState(shippingInfo.email);
   const [saveAddress, setSaveAddress] = React.useState(false);

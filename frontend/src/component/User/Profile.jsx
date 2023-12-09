@@ -50,10 +50,6 @@ const ProfilePage = () => {
         <Typography variant="h5" component="h1" className="headingProfile">
           Hi, {user.name} !
         </Typography>
-
-        <Typography variant="body2" className="greeting">
-          Welcome back! Happy shopping!
-        </Typography>
       </div>
 
       <div className="profileConatiner">
@@ -106,10 +102,6 @@ const ProfilePage = () => {
             <Typography variant="h4" component="h1" className="profileHeading">
               Personal Information
             </Typography>
-            <Typography className="profileText2">
-              Hey there ! Feel free to edit any of your details below so your
-              account is up to date.
-            </Typography>
           </div>
           <div className="profileDetials">
             <div className="detials">
@@ -123,12 +115,11 @@ const ProfilePage = () => {
               <Typography className="profileText">{user.name}</Typography>
               <Typography className="profileText">USER EMAIL</Typography>
               <Typography className="profileText"> PHONE NUMBER</Typography>
-              <Typography className="profileText">GENDER</Typography>
             </div>
 
             <Link to="/profile/update" style={{ textDecoration: "none" }}>
               <Button variant="contained" className="profileButton">
-                EDIT DETAILS
+                EDIT INFORMATION
               </Button>
             </Link>
             <div className="detials">
@@ -168,18 +159,12 @@ const ProfilePage = () => {
                 component="h1"
                 className="profileHeading"
               >
-                Log out from all devices
+                Log out
               </Typography>
-
-              <p className="profileText3">
-                To access the Cricket Weapon Store website again, you need to
-                provide your credentials. This action will log you out from any
-                other web browsers you have used before.
-              </p>
             </div>
             <Button
               variant="contained"
-              color="primary"
+              color="red"
               className="profileButton"
               startIcon={<LogoutIcon />}
               onClick={logoutHandler}

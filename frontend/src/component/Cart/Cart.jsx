@@ -21,7 +21,6 @@ const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
 
   // new code
-  const [couponCode, setCouponCode] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const [isValid, setIsValid] = useState(true);
 
@@ -46,10 +45,6 @@ const Cart = () => {
   };
 
   // new code
-  const handleApplyCoupon = () => {
-    // handle apply coupon logic
-    setIsValid(false);
-  };
 
   const handleFocus = (event) => {
     setIsFocused(event.target.value !== "");
@@ -62,7 +57,6 @@ const Cart = () => {
   };
 
   const checkoutHandler = () => {
-   
     history.push("/login?redirect=/shipping");
   };
 
@@ -110,10 +104,7 @@ const Cart = () => {
               Your Shopping Cart is Empty
             </Typography>
             <Typography variant="body" className="cartText">
-              Nothin' to see here.
-            </Typography>
-            <Typography variant="body" className="cartText">
-              Let's get shopping!
+              Back to Shopping Page
             </Typography>
             <Link to="/products">
               <Button className="shopNowButton">Shop Now</Button>
@@ -182,7 +173,6 @@ const Cart = () => {
                             color: "#414141",
                           }}
                         >
-                          (Inclusive of all taxes)
                         </p>
                       </div>
                       <p>
@@ -193,36 +183,6 @@ const Cart = () => {
                 </div>
 
                 <div className="separator"></div>
-
-                <div className="coupon-box-wrapper">
-                  <div
-                    className={`coupon-box-content ${
-                      isFocused ? "focused" : ""
-                    }`}
-                  >
-                    <TextField
-                      label="Enter coupon code"
-                      value={couponCode}
-                      onChange={(e) => setCouponCode(e.target.value)}
-                      onFocus={handleFocus}
-                      onBlur={() => setIsFocused(false)}
-                      error={!isValid}
-                      helperText={!isValid && "Invalid coupon code"}
-                      variant="outlined"
-                      size="small"
-                      style={{ width: "200px", marginRight: "1rem" }}
-                    />
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className="coupon-box-apply-btn"
-                      onClick={handleApplyCoupon}
-                    >
-                      Apply
-                    </Button>
-                  </div>
-                </div>
-
                 <Button
                   variant="contained"
                   className="btn-custom"
@@ -230,14 +190,6 @@ const Cart = () => {
                 >
                   Checkout
                 </Button>
-
-                <div className="paymentLogoImg">
-                  <img
-                    src={require("../../Image/cart/cart_img.png")}
-                    alt="payemnt-icons"
-                    className="paymentImg"
-                  />
-                </div>
               </div>
             </div>
           </>

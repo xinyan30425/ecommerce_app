@@ -10,7 +10,7 @@
   z-index: 999;
   display: flex;
   flex-direction: column;
-  height: 7rem;
+  height: 5.5rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -18,14 +18,16 @@
 
 .headerTop {
   width: 100%;
-
-  background-color: rgb(37, 37, 37);
-  color: rgb(255, 255, 255);
+  /*background-color: rgb(37, 37, 37);*/
+    background-color: rgb(171, 220, 238);
+  /*color: rgb(255, 255, 255);*/
+    color: rgb(22, 52, 131);
   display: grid;
   font-family: "Roboto", sans-serif;
   font-size: 12px;
   grid-template-columns: 1fr minmax(465px, 1fr);
-  height: 33px;
+  height: 50px;
+  /*  height: 7rem;*/
   margin: 0px auto;
   padding: 0px;
   position: relative;
@@ -42,8 +44,10 @@
  margin-bottom: -10px;
 }
 .headerTopLeft > p {
- position: absolute;
+    position: absolute;
     top: -9px;
+    font-family: "Times New Roman", Georgia, serif;
+    font-weight: bold;
 }
 
 .headerTopRight {
@@ -71,19 +75,22 @@
 .headerLogin {
   width: 110px;
  cursor: pointer;
-  background-color: rgb(75, 66, 66);
+  /*background-color: rgb(75, 66, 66);*/
+    background-color: rgb(22, 52, 131);
   padding-right: 5px;
   padding-left: 30px;
 }
 .headerLogin button {
   font-family: "Roboto", sans-serif;
-  height: 33px;
+  height: 35px;
   border: none;
   text-align: center;
   color: rgb(255, 255, 255);
-  background-color: rgb(75, 66, 66);
-  font-weight: 400;
-  font-size: 12px;
+    font-family: "Times New Roman", Georgia, serif;
+    font-weight: bold;
+    background-color: rgb(22, 52, 131);
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
 }
 .headerLogin > button:hover {
@@ -96,11 +103,10 @@
   display: flex;
   justify-content: space-around;
 }
-.headerBottom__logo{
-  width:  auto;
-height: 52px;
-padding: auto;
-
+.headerBottom__logo {
+    width: auto;
+    height: 52px;
+    padding: 10px;
 align-self: center;
 }
 
@@ -121,8 +127,9 @@ height: 64px;
 }
 .headerBottom_navMenu ul{
   display: flex;
-gap: .9rem;
-  height: 50px;
+/*gap: .9rem;*/
+    gap: 13rem;
+  height: 25px;
   width: auto;
   text-align: center;
   margin-top: 5px;
@@ -133,20 +140,20 @@ padding: 18px 14px;
   width: auto;
 list-style: none;
   height: fit-content;
-     padding: 30px;
+     padding: 10px;
      padding-bottom: 10px;
-    
-     
-
 }
 .headerBottom_navMenu ul li a{
-   color: #121212;
+    color: rgb(22, 52, 131);
    text-decoration: none;
-    font-size: 15px;
+    font-size: 25px;
     font-weight: 500;
 
     margin-top: 20px;
     font-family: 'Roboto', sans-serif;
+    font-family: "Times New Roman", Georgia, serif;
+    font-weight: bold;
+
 }
 
 .headerBottom_navMenu ul li a:hover{

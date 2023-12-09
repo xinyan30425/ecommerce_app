@@ -9,7 +9,7 @@ import { useAlert } from "react-alert";
 import HeroSlider from "./HeroSilder";
 import FeaturedSlider from "./FeatureSlider";
 function Home() {
-  // we provided all parameter for react-alert at index.js
+
   const alert = useAlert();
 
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ function Home() {
       ) : (
         <>
           <>
-            <MataData title="Cricket Weapon" />
+            <MataData title="Curated Collection" />
             <div className="Home_Page">
               <div className="heroSlider_Home">
                 <HeroSlider />;
@@ -47,16 +47,10 @@ function Home() {
                   Featured Products
                 </h2>
                 {products &&
-             
-                
                        <FeaturedSlider   products ={products}/> }
-                  
-                 
               
               </div>
-
               <h2 className="trending_heading">Trending Products</h2>
-
               <div className="trending-products">
                 {products &&
                   products.map((product) => (

@@ -58,7 +58,7 @@ gap: 5rem;
   align-items: center;
   justify-content: center;
   min-height: 60vh;
-gap: 1rem;
+  gap: 1rem;
   padding: 16px;
   box-sizing: border-box;
   margin-top: 1rem;
@@ -93,7 +93,7 @@ gap: 1rem;
 
 .emptyCartContainer .shopNowButton {
   background-color: rgb(40, 38, 38);
-  color: white;
+  color: red;
   min-height: 48px;
   width: 100%;
   padding: 4px 16px;
@@ -207,90 +207,7 @@ align-items: center;
     font-weight: 800;
     
 }
-.coupon-box-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  width: 100%;
-}
 
-.coupon-box-content {
-  /* Existing rules */
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Add this rule */
-  align-items: center;
-  background-color: transparent;
-  border: 1px solid #414141;
-  border-radius: 5px;
-  padding: 0.5rem;
-  font-size: 1rem;
-  transition: border-color 0.3s ease-in-out;
-  width: 100%;
-}
-
-.coupon-box-content.focused {
-  border-color: black;
-  width: 100%;
-}
-
-.coupon-box-content .MuiFormControl-root {
-  width: 100%;
-}
-
-.coupon-box-content .MuiInputLabel-outlined.Mui-focused {
-  transform: translate(14px, -6px) scale(0.75);
-}
-
-.coupon-box-content .MuiOutlinedInput-notchedOutline {
-  border-color: transparent;
-}
-
-.coupon-box-content
-  .MuiOutlinedInput-root.Mui-focused
-  .MuiOutlinedInput-notchedOutline {
-  border-color: black;
-}
-
-.coupon-box-content .MuiOutlinedInput-input {
-  padding: 8px;
-  font-size: 1rem;
-}
-
-.coupon-box-content .MuiButton-containedPrimary {
-  background-color: rgb(40, 38, 38);
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 8px 16px;
-  text-transform: none;
-  margin-left: 1rem;
-  transition: background-color 0.3s ease-in-out;
-  cursor: pointer;
-}
-
-.coupon-box-content .MuiButton-containedPrimary:hover {
-  background-color: #ed1c24;
-}
-
-.coupon-box-content .MuiFormHelperText-root {
-  color: #ed1c24;
-  font-size: 0.75rem;
-}
-.coupon-box-content .MuiInputLabel-outlined.Mui-focused {
-  color: black;
-}
-.coupon-box-content .MuiButton-containedPrimary {
-  /* Existing rules */
-  width: 30% !important;
-}
-.coupon-box-content .MuiFormControl-root {
-  /* Existing rules */
-  width: 70% !important;
-  height: 80%;
-}
 .btn-custom {
   background-color: #212121 !important;
   border-color: #212121 !important;

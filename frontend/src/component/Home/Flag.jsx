@@ -2,17 +2,13 @@ import React from "react";
 import { makeStyles } from "@mui/styles";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import IN from "../../Image/flag/in.svg"
 import US from "../../Image/flag/us.svg"
 import GB from "../../Image/flag/gb.svg"
-import FR from "../../Image/flag/fr.svg"
+
 
 const countryOptions = [
-  { code: "in", label: "India", flag: IN },
   { code: "us", label: "USA", flag:  US },
   { code: "gb", label: "UK", flag: GB },
-  { code: "fr", label: "France", flag: FR },
-  // ... add more countries here
 ];
 
 const useStyles = makeStyles(() => ({

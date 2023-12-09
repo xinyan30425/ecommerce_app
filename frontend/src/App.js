@@ -13,8 +13,6 @@ import "./App.css";
 import Header from "./component/layouts/Header1.jsx/Header";
 import Payment from "./component/Cart/Payment";
 import Home from "./component/Home/Home";
-import Services from "./Terms&Condtions/Service";
-import Footer from "./component/layouts/Footer/Footer";
 import ProductDetails from "./component/Product/ProductDetails";
 import Products from "./component/Product/Products";
 import Signup from "./component/User/SignUp";
@@ -29,13 +27,8 @@ import Cart from "./component/Cart/Cart";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 import MyOrder from "./component/order/MyOrder";
-import ContactForm from "./Terms&Condtions/Contact";
-import AboutUsPage from "./Terms&Condtions/Aboutus";
-import ReturnPolicyPage from "./Terms&Condtions/Return";
-import TermsUse from "./Terms&Condtions/TermsAndUse";
-import TermsAndConditions from "./Terms&Condtions/TermsCondtion";
-import PrivacyPolicy from "./Terms&Condtions/Privacy";
-// const LazyPayment = React.lazy(() => import("./component/Cart/Payment"));
+
+
 const LazyDashboard = React.lazy(() => import("./component/Admin/Dashboard"));
 const LazyProductList = React.lazy(() =>
   import("./component/Admin/ProductList")
@@ -105,8 +98,7 @@ function App() {
               <>
                 {<Header />}
                 <Home />
-                <Services />
-                {<Footer />}
+
               </>
             )}
           />
@@ -118,8 +110,7 @@ function App() {
               <>
                 {<Header />}
                 <ProductDetails />
-                <Services />
-                {<Footer />}
+
               </>
             )}
           />
@@ -131,8 +122,7 @@ function App() {
               <>
                 {<Header />}
                 <Products />
-                <Services />
-                {<Footer />}
+
               </>
             )}
           />
@@ -143,8 +133,7 @@ function App() {
               <>
                 {<Header />}
                 <Products />
-                <Services />
-                {<Footer />}
+
               </>
             )}
           />
@@ -156,8 +145,7 @@ function App() {
               <>
                 {<Header />}
                 <Signup />
-                <Services />
-                {<Footer />}
+
               </>
             )}
           />
@@ -169,8 +157,6 @@ function App() {
               <>
                 {<Header />}
                 <Login />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -182,8 +168,7 @@ function App() {
               <>
                 {<Header />}
                 <ForgetPassword />
-                <Services />
-                {<Footer />}
+
               </>
             )}
           />
@@ -195,8 +180,6 @@ function App() {
               <>
                 {<Header />}
                 <ResetPassword />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -208,8 +191,6 @@ function App() {
               <>
                 {<Header />}
                 <Cart />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -221,8 +202,6 @@ function App() {
               <>
                 {<Header />}
                 <ReturnPolicyPage />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -234,8 +213,6 @@ function App() {
               <>
                 {<Header />}
                 <TermsUse />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -246,9 +223,6 @@ function App() {
             render={() => (
               <>
                 {<Header />}
-                <PrivacyPolicy />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -259,9 +233,6 @@ function App() {
             render={() => (
               <>
                 {<Header />}
-                <TermsAndConditions />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -272,9 +243,6 @@ function App() {
             render={() => (
               <>
                 {<Header />}
-                <ContactForm />
-
-                {<Footer />}
               </>
             )}
           />
@@ -285,9 +253,6 @@ function App() {
             render={() => (
               <>
                 {<Header />}
-                <AboutUsPage />
-
-                {<Footer />}
               </>
             )}
           />
@@ -299,8 +264,6 @@ function App() {
               <>
                 {<Header />}
                 <PrivateRoute exact path="/account" component={Profile} />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -316,8 +279,6 @@ function App() {
                   path="/profile/update"
                   component={UpdateProfile}
                 />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -333,8 +294,6 @@ function App() {
                   path="/password/update"
                   component={UpdatePassword}
                 />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -346,8 +305,6 @@ function App() {
               <>
                 {<Header />}
                 <PrivateRoute exact path="/orders" component={MyOrder} />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -359,8 +316,6 @@ function App() {
               <>
                 {<Header />}
                 <PrivateRoute exact path="/shipping" component={Shipping} />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -376,8 +331,6 @@ function App() {
                   path="/order/confirm"
                   component={ConfirmOrder}
                 />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
@@ -389,8 +342,6 @@ function App() {
               <>
                 {<Header />}
                 <PrivateRoute exact path="/success" component={OrderSuccess} />
-                <Services />
-                {<Footer />}
               </>
             )}
           />
