@@ -11,7 +11,6 @@ import {
   calculateDiscount,
   dispalyMoney,
 } from "../DisplayMoney/DisplayMoney";
-import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import Rating from "@material-ui/lab/Rating";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -115,7 +114,6 @@ useEffect(() => {
             <section id="product_details" className="section">
               <div className="product_container">
                 <div className="wrapper prod_details_wrapper">
-                  {/*=== Product Details Left-content ===*/}
                   <div className="prod_details_left_col">
                     <div className="prod_details_tabs">
                       {product.images &&
