@@ -12,9 +12,11 @@ import {
 import Rating from "@material-ui/lab/Rating";
 import { FitScreen } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import {dispalyMoney  ,generateDiscountedPrice} from "../DisplayMoney/DisplayMoney"
+import { dispalyMoney, generateDiscountedPrice } from "../DisplayMoney/DisplayMoney"
 import { addItemToCart } from "../../actions/cartAction";
 import { useDispatch } from "react-redux";
+import { createProduct } from "../../actions/productAction";
+import { useHistory, useLocation } from "react-router-dom/cjs/react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "280px",
@@ -24,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
     currsor: "pointer",
   },
   media: {
-  
+
     height: 200,
     width: "90%",
     objectFit: "cover",
-    margin : "1rem 1rem 0 1rem"
-   },
+    margin: "1rem 1rem 0 1rem"
+  },
   button: {
     backgroundColor: "black",
     color: "white",
@@ -55,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     fontSize: "0.8rem",
-    fontWeight: 500, 
+    fontWeight: 500,
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1),
     display: "-webkit-box",
@@ -67,28 +69,42 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProductCard = ({ product }) => {
+  const { pathname } = useLocation();
   const dispatch = useDispatch();
+  const history = useHistory();
   const classes = useStyles();
-    let discountPrice = generateDiscountedPrice(product.price);
-    discountPrice = dispalyMoney(discountPrice);
+  let discountPrice = generateDiscountedPrice(product.price);
+  discountPrice = dispalyMoney(discountPrice);
   const oldPrice = dispalyMoney(product.price);
-  
+
   const truncated =
     product.description
       .split(" ")
       .slice(0, 5)
       .join(" ") + "...";
-      const  nameTruncated = product.name.split(" ").slice(0, 3).join(" ") + "...";
+  const nameTruncated = product.name.split(" ").slice(0, 3).join(" ") + "...";
 
 
-      const addTocartHandler = (id , qty) => {
-        dispatch(addItemToCart(id , qty))
-      }
+  const addTocartHandler = (id, qty) => {
+    dispatch(addItemToCart(id, qty))
+  }
+
+  const creatHandler = async () => {
+    const data = await dispatch(createProduct(product));
+    return data;
+  }
 
   return (
     <Card className={classes.root}>
-      <Link
+      <Button
         className="productCard"
+        onClick={() => {
+          if (pathname.includes('search')) {
+            const data = creatHandler();
+            console.log(data)
+          }
+          history.push(`/product/${product._id}`)
+        }}
         to={`/product/${product._id}`}
         style={{ textDecoration: "none", color: "inherit" }}
       >
@@ -134,7 +150,7 @@ const ProductCard = ({ product }) => {
             </Box>
           </CardContent>
         </CardActionArea>
-      </Link>
+      </Button>
       <Box display="flex" justifyContent="center" p={2}>
         <Button
           variant="contained"
