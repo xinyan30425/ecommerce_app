@@ -49,33 +49,35 @@ const Search = ({
   searchValue,
 }) => {
   return (
-    <>
+    <div className="d-flex flex-row">
+      <SearchAPI className="d-flex"/>
+
       {!searchBarActive && (
         <SearchButton onClick={handleSearchButtonClick}>
           <SearchOutlined fontSize="large" className="closeIcon" />
         </SearchButton>
       )}
       {searchBarActive && (
-        <SearchBar>
-          <SearchButton onClick={handleSearchFormSubmit}>
-            <SearchOutlined fontSize="large" className="closeIcon" />
-          </SearchButton>
-          <form onSubmit={handleSearchFormSubmit} className="search_from">
-            <SearchInput
-              type="text"
-              placeholder="Search........."
-              value={searchValue}
-              onChange={handleSearchInputChange}
-            />
-          </form>
-          <SearchButton onClick={handleCrossButtonClick}>
-            <CloseOutlined fontSize="large" className="closeIcon" />
-          </SearchButton>
-          <SearchAPI />
-
-        </SearchBar>
+        <>
+          <SearchBar>
+            <SearchButton onClick={handleSearchFormSubmit}>
+              <SearchOutlined fontSize="large" className="closeIcon" />
+            </SearchButton>
+            <form onSubmit={handleSearchFormSubmit} className="search_from">
+              <SearchInput
+                type="text"
+                placeholder="Search........."
+                value={searchValue}
+                onChange={handleSearchInputChange}
+              />
+            </form>
+            <SearchButton onClick={handleCrossButtonClick}>
+              <CloseOutlined fontSize="large" className="closeIcon" />
+            </SearchButton>
+          </SearchBar>
+        </>
       )}
-    </>
+    </div>
   );
 };
 

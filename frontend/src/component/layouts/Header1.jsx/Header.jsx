@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 
 import ProfileModal from "./ProfileModel";
 import Search from "../../Search/search";
+import SearchAPI from "../../Search/search";
 
 function Header() {
   const history = useHistory();
