@@ -264,19 +264,6 @@ function ProductReviews() {
       flex: 0.8,
     },
     {
-      field: "recommend",
-      headerName: "Recommend",
-      minWidth: 100,
-      flex: 1,
-      headerClassName: "column-header hide-on-mobile",
-      cellClassName: (params) => {
-        return params.getValue(params.id, "recommend") === true
-          ? "greenColor"
-          : "redColor"; // if rating of review greater then class green else red
-      },
-    },
-
-    {
       field: "rating",
       headerName: "Rating",
       type: "number",
@@ -322,7 +309,6 @@ function ProductReviews() {
         user: item.name,
         comment: item.comment,
         rating: item.ratings,
-        recommend: item.recommend ? "Yes" : "No",
       });
     });
 

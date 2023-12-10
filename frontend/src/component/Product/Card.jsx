@@ -40,26 +40,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "14px",
     color: "#414141",
   },
-  recommend: {
-    fontWeight: 700,
-  },
-  helpful: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    marginTop: theme.spacing(2),
-  },
 
-  thumbIcon: {
-    marginRight: "5px",
-    marginLeft: "2rem",
-    cursor: "pointer",
-    fontSize: "1.5rem",
-    "&:hover": {
-      color: "red",
-    },
-  },
 
   subHeadings: {
     fontSize: "16px",
@@ -90,31 +71,6 @@ const useStyles = makeStyles((theme) => ({
 
 const MyCard = ({ review }) => {
   const classes = useStyles();
-
-  const [helpful, setHelpful] = useState(10);
-  const [unhelpful, setUnHelpful] = useState(5);
-  const [helpfulClicked, setHelpfulClicked] = useState(false);
-  const [unhelpfulClicked, setUnhelpfulClicked] = useState(false);
-
-  const helpfulHandler = (type) => {
-    if (type === "up" && !helpfulClicked) {
-      setHelpful(helpful + 1);
-      setHelpfulClicked(true);
-
-      if (unhelpfulClicked) {
-        setUnHelpful(unhelpful - 1);
-        setUnhelpfulClicked(false);
-      }
-    } else if (type === "down" && !unhelpfulClicked) {
-      setUnHelpful(unhelpful + 1);
-      setUnhelpfulClicked(true);
-
-      if (helpfulClicked) {
-        setHelpful(helpful - 1);
-        setHelpfulClicked(false);
-      }
-    }
-  };
 
   function formateDate(dateString){
     const date = new Date(dateString);
@@ -162,35 +118,6 @@ const MyCard = ({ review }) => {
       <Typography variant="body1" className={classes.commentTxt}>
         {review.comment}
       </Typography>
-      <Typography variant="body1" className={classes.recommend}>
-        Would you recommend this product?{" "}
-        <span className={review.recommend ? classes.yes : classes.no}>
-          {review.recommend ? "Yes!" : "No!"}
-        </span>
-      </Typography>
-      <div className={classes.helpful}>
-        <Typography
-          variant="body2"
-          color="textSecondary "
-          className={classes.subHeadings}
-        >
-          Helpful?
-        </Typography>
-        <ThumbUpIcon
-          className={`${classes.thumbIcon} ${
-            helpfulClicked ? classes.clicked : ""
-          }`}
-          onClick={() => helpfulHandler("up")}
-        />
-        <Typography>{helpful}</Typography>
-        <ThumbDownIcon
-          className={`${classes.thumbIcon} ${
-            unhelpfulClicked ? classes.clicked : ""
-          }`}
-          onClick={() => helpfulHandler("down")}
-        />
-        <Typography>{unhelpful}</Typography>
-      </div>
     </div>
   );
 };

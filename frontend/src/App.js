@@ -19,6 +19,7 @@ import UpdateProfile from "./component/User/UpdateProfile";
 import UpdatePassword from "./component/User/UpdatePassword";
 import ForgetPassword from "./component/User/ForgetPassword";
 import ResetPassword from "./component/User/ResetPassword";
+import Cart from "./component/Cart/Cart";
 import SearchAPI from "./component/Search/search";
 
 

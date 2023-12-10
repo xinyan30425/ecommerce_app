@@ -34,7 +34,6 @@ const DialogBox = ({ open, handleClose, id }) => {
   const [title, setTitle] = useState("");
   const [comment, setComment] = useState("");
   const [ratings, setRatings] = useState(0);
-  const [recommend, setRecommend] = useState(false);
 
   const { success, error } = useSelector((state) => {
     return state.addNewReview;
@@ -67,7 +66,6 @@ const DialogBox = ({ open, handleClose, id }) => {
     myForm.set("title", title);
     myForm.set("comment", comment);
     myForm.set("ratings", ratings);
-    myForm.set("recommend", recommend);
     if(id){
           myForm.set("productId", id);
     }else{
@@ -154,33 +152,6 @@ const DialogBox = ({ open, handleClose, id }) => {
             precision={0.5}
             className={classes.star}
           />
-        </Box>
-        <Box mt={2}>
-          <FormControl component="fieldset">
-            <FormLabel
-              component="legend"
-              style={{ fontSize: "14px", color: "#414141", fontWeight: "500" }}
-            >
-              Would you recommend this product?
-            </FormLabel>
-            <RadioGroup
-              aria-label="recommendation"
-              name="recommendation"
-              value={recommend}
-              onChange={handleRecommendChange}
-            >
-              <FormControlLabel
-                value="yes"
-                control={<Radio color="black" />}
-                label="Yes"
-              />
-              <FormControlLabel
-                value="no"
-                control={<Radio color="black" />}
-                label="No"
-              />
-            </RadioGroup>
-          </FormControl>
         </Box>
 
         <DialogActions>
