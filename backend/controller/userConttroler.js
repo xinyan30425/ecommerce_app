@@ -10,17 +10,13 @@ const cloudinary = require("cloudinary");
 // signUp controller>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 exports.registerUser = asyncWrapper(async (req, res) => {
 
-  // const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-  //   folder: "Avatar", // this folder cloudainry data base manage by us
-  //   width: 150,
-  //   crop: "scale",
-  // });
 
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
   const user = await userModel.create({
     name,
     password,
     email,
+    role,
     // avatar: {
     //   public_id: myCloud.public_id,
     //   url: myCloud.secure_url,

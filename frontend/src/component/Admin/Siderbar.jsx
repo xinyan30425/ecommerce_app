@@ -1,15 +1,13 @@
 import React from "react";
 import { Link , useHistory } from "react-router-dom";
-import { Avatar, Typography, Button } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 import PostAddIcon from "@mui/icons-material/PostAdd";
 import AddIcon from "@mui/icons-material/Add";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import RateReviewIcon from "@mui/icons-material/RateReview";
-import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import HomeIcon from "@mui/icons-material/Home";
-import ContactPageIcon from "@mui/icons-material/ContactPage";
+
 import { useSelector } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   sidebar: {
@@ -118,11 +116,6 @@ function accountHandler() {
       {!loading && (
         <>
           <div className={classes.sidebar}>
-            <Avatar
-              src={user && user.avatar.url}
-              alt="User Avatar"
-              className={classes.avatar11}
-            />
             
             <Typography variant="subtitle1" className={classes.name}>
               {user && user.name}
@@ -132,19 +125,6 @@ function accountHandler() {
             </Typography>
             <div className={classes.divider} />
             <ul className={classes.sideBarMenu}>
-              <Link
-                to="/admin/dashboard"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                <li className={classes.sideBarMenuItem}>
-                  <DashboardIcon fontSize="large" />
-                  <span className={classes.sideBarMenuItem_text}>
-                    {" "}
-                    Dashboard
-                  </span>
-                </li>
-              </Link>
-
               <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
                 <li className={classes.sideBarMenuItem}>
                   <HomeIcon fontSize="large" />
@@ -176,48 +156,7 @@ function accountHandler() {
                   </span>
                 </li>
               </Link>
-
-              <Link
-                to="/admin/orders"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                <li className={classes.sideBarMenuItem}>
-                  <ListAltIcon fontSize="large" />
-                  <span className={classes.sideBarMenuItem_text}>Orders</span>
-                </li>
-              </Link>
-              <Link
-                to="/admin/reviews"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                <li className={classes.sideBarMenuItem}>
-                  <RateReviewIcon fontSize="large" />
-                  <span className={classes.sideBarMenuItem_text}>Reviews</span>
-                </li>
-              </Link>
-
-              <Link
-                to="/contact"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-                <li className={classes.sideBarMenuItem}>
-                  <ContactPageIcon fontSize="large" />
-                  <span className={classes.sideBarMenuItem_text}>Contact</span>
-                </li>
-              </Link>
             </ul>
-            <div className={classes.divider} />
-            <Button
-              className={classes.button}
-              onClick={accountHandler}
-              variant="contained"
-            >
-              <ManageAccountsIcon
-                fontSize="large"
-                style={{ marginRight: "10px" }}
-              />
-              Account
-            </Button>
           </div>
         </>
       )}

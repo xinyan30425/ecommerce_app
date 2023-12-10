@@ -94,15 +94,6 @@ const useStyles = makeStyles((theme) => ({
       color: "#ed1c24",
     },
   },
-  termsAndConditionsText: {
-    fontFamily: "Roboto",
-    color: "#727272",
-    textAlign: "center",
-    lineHeight: "17px",
-    paddingLeft: "4px",
-    marginTop: theme.spacing(2),
-    fontSize: "12px",
-  },
   loginButton: {
     color: "#fff",
     backgroundColor: "#000",

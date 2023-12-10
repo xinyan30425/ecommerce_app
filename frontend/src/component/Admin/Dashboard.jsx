@@ -16,9 +16,6 @@ import Sidebar from "./Siderbar";
 import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import ProductImg from "../../Image/admin/products.png";
-import ordersImg from "../../Image/admin/order.png";
-import usersImg from "../../Image/admin/user.png"; 
 Highcharts3D(Highcharts);
 
 const useStyles = makeStyles((theme) => ({
@@ -170,18 +167,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  revenue: {
-    width: "100%",
-    height: "fit-content",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    margin: "-2.5rem auto 0",
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
-      marginTop: "5rem !important",
-    },
-  },
   doughnutChart: {
     height: "fit-content",
     width: "42%",
@@ -290,8 +275,6 @@ function Dashboard() {
       }
     });
 
-
-
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -324,7 +307,6 @@ function Dashboard() {
       totalAmount += item.totalPrice;
     });
 
-  // chart js values for Line component
   const lineOptions = {
     chart: {
       type: "line",
@@ -369,67 +351,6 @@ function Dashboard() {
   };
   // now set the Value of stock of the product for Doughnut component in  chart .
 
-  const doughnutOptions = {
-    chart: {
-      type: "pie",
-      options3d: {
-        enabled: true,
-        alpha: 45,
-        beta: 0,
-      },
-      style: {
-        fontFamily: "Roboto",
-      },
-    },
-    title: {
-      text: "Product Stock Status",
-      align: "center",
-      style: {
-        color: "black",
-        fontWeight: "900",
-      },
-    },
-
-    accessibility: {
-      point: {
-        valueSuffix: "%",
-      },
-    },
-    tooltip: {
-      pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
-    },
-    plotOptions: {
-      pie: {
-        allowPointSelect: true,
-        cursor: "pointer",
-        depth: 35,
-        dataLabels: {
-          enabled: true,
-          format: "{point.name}",
-          style: {
-            fontWeight: "500",
-          },
-        },
-      },
-    },
-    series: [
-      {
-        type: "pie",
-        name: "Share",
-        data: [
-          ["Out of Stock", products.length - OutOfStock],
-
-          {
-            name: "Out of Stock",
-            y: OutOfStock,
-            sliced: true,
-            selected: true,
-          },
-        ],
-      },
-    ],
-  };
-
   // to close the sidebar when the screen size is greater than 1000px
   useEffect(() => {
     const handleResize = () => {
@@ -470,7 +391,6 @@ function Dashboard() {
                 <div
                   className={classes.cardContainer}
                   style={{
-                    backgroundImage: `url(${ProductImg})`,
                     backgroundSize: "cover",
                     transition: "transform 0.2s ease-in-out",
                     cursor: "pointer",
@@ -503,7 +423,6 @@ function Dashboard() {
                 <div
                   className={classes.cardContainer}
                   style={{
-                    backgroundImage: `url(${ordersImg})`,
                     backgroundSize: "cover",
                     transition: "transform 0.2s ease-in-out",
                     cursor: "pointer",
@@ -535,7 +454,6 @@ function Dashboard() {
                 <div
                   className={classes.cardContainer}
                   style={{
-                    backgroundImage: `url(${usersImg})`,
                     backgroundSize: "cover",
                     transition: "transform 0.2s ease-in-out",
                     cursor: "pointer",
@@ -563,53 +481,6 @@ function Dashboard() {
                     </Typography>
                   </div>
                 </div>
-              </div>
-
-              <div className={classes.revenue}>
-                <div className={classes.doughnutChart}>
-                  <HighchartsReact
-                    highcharts={Highcharts}
-                    options={doughnutOptions}
-                  />
-                </div>
-
-                <div
-                  className={classes.revnueContainer}
-                  style={{
-                    backgroundImage: `url(${ProductImg})`,
-                    backgroundSize: "cover",
-                    transition: "transform 0.2s ease-in-out",
-                    borderRadius: "5px",
-
-                    width: "42%",
-                  }}
-                >
-                  <div className={classes.headerConetnt}>
-                    <BarChart
-                      fontSize="large"
-                      style={{
-                        fontSize: "3rem",
-                        boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-                      }}
-                    />
-
-                    <Typography variant="h6" className={classes.heading}>
-                      Total Revenue
-                    </Typography>
-                  </div>
-                  <div className={classes.textContainer}>
-                    <Typography variant="body2" className={classes.number}>
-                      ₹{totalAmount.toFixed(2)}
-                    </Typography>
-                  </div>
-                </div>
-              </div>
-
-              <div className={classes.lineChart}>
-                <HighchartsReact
-                  highcharts={Highcharts}
-                  options={lineOptions}
-                />
               </div>
             </div>
           </div>

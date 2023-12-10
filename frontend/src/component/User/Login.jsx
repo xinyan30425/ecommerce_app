@@ -142,12 +142,6 @@ export default function Login() {
                 </Link>
               </Grid>
             </Grid>
-            <Typography
-              variant="body2"
-              className={classes.termsAndConditionsText}
-            >
-        
-            </Typography>
             <Button
               variant="contained"
               className={classes.loginButton}

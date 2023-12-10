@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Select, MenuItem, InputLabel } from "@material-ui/core";
+
 import {
   Avatar,
   Button,
@@ -24,6 +26,8 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 function Signup() {
   const classes = useStyles();
   const [showPassword, setShowPassword] = useState(false);
+  const [role, setRole] = useState("");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -127,6 +131,8 @@ function Signup() {
     }
 
     const formData = new FormData();
+    formData.set("role", role);  // 确保添加了这一行
+
     formData.set("name", name);
     formData.set("email", email);
     formData.set("password", password);
@@ -177,6 +183,18 @@ function Signup() {
                   : ""
               }
             />
+            <InputLabel id="role-select-label">Role</InputLabel>
+              <Select
+                labelId="role-select-label"
+                id="role-select"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                fullWidth
+                className={classes.textField}
+              >
+                <MenuItem value="user">Normal User</MenuItem>
+                <MenuItem value="admin">Admin</MenuItem>
+              </Select>
             <TextField
               label="Password"
               variant="outlined"

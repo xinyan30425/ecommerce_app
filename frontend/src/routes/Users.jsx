@@ -4,12 +4,7 @@ import Header from "../component/layouts/Header1.jsx/Header";
 import Home from "../component/Home/Home";
 import ProductDetails from "../component/Product/ProductDetails";
 import Products from "../component/Product/Products";
-import Shipping from "../component/Cart/Shipping";
 import Cart from "../component/Cart/Cart";
-import ConfirmOrder from "../component/Cart/ConfirmOrder";
-import Payment from "../component/Cart/Payment";
-import OrderSuccess from "../component/Cart/OrderSuccess";
-import MyOrder from "../component/order/MyOrder";
 import Signup from "../component/User/SignUp";
 import Login from "../component/User/Login";
 import Profile from "../component/User/Profile";
@@ -60,11 +55,6 @@ function Users() {
     <>
       <Router>
         {isAdminRoute ? null : <Header />}
-        {stripeApiKey && (
-          <Elements stripe={loadStripe(stripeApiKey)}>
-            <PrivateRoute exact path="/process/payment" component={Payment} />
-          </Elements>
-        )}
         <Switch>
           <Route exact path="/">
             <Home />
@@ -93,9 +83,6 @@ function Users() {
           <Route exact path="/cart">
             <Cart />
           </Route>
-          <Route exact path="/terms/conditions">
-            <TermsAndConditions />
-          </Route>
           <Route exact path="/contact">
             <ContactForm />
           </Route>
@@ -111,14 +98,6 @@ function Users() {
             component={UpdatePassword}
           />
 
-          <PrivateRoute exact path="/orders" component={MyOrder} />
-          <PrivateRoute exact path="/shipping" component={Shipping} />
-          <PrivateRoute
-            exact
-            path="/order/confirm"
-            component={ConfirmOrder}
-          />
-          <PrivateRoute exact path="/success" component={OrderSuccess} />
         </Switch>
       </Router>
     </>

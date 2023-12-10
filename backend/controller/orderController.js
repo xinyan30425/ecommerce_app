@@ -15,23 +15,6 @@ exports.newOrder = asyncWrapper(async (req, res, next) => {
     totalPrice,
   } = req.body;
 
-  // create order :
-  const order = await orderModel.create({  
-    shippingInfo,
-    orderItems,
-    paymentInfo,
-    itemsPrice,
-    taxPrice,
-    shippingPrice,
-    totalPrice,
-    user: req.user._id, // from authenticated user
-    paidtAt: Date.now(),
-  });
-
-  res.status(201).json({
-    success: true,
-    order,
-  });
 });
 
 //>>>>>>>>>>>> getSingleOrder >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -35,8 +35,6 @@ function OrderList() {
     const handleResize = () => {
       if (window.innerWidth > 999 && toggle) {
         setToggle(false);
-      
-
       }
     };
        
