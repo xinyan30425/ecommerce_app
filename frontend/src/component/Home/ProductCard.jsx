@@ -90,7 +90,16 @@ const ProductCard = ({ product }) => {
   }
 
   const creatHandler = async () => {
-    const data = await dispatch(createProduct(product));
+    const myForm = new FormData();
+    myForm.set("name", product.name);
+    myForm.set("price", product.price);
+    myForm.set("description", product.description);
+    product.images.forEach((currImg) => {
+      myForm.append("images", currImg.url);
+    });
+
+    const data = await dispatch(createProduct(myForm));
+    console.log(data)
     return data;
   }
 
