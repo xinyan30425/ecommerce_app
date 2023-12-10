@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Select, MenuItem, InputLabel } from "@material-ui/core";
-import useStyles from "./LoginFromStyle";
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
+
+import {
+  Avatar,
+  Button,
+  Checkbox,
+  TextField,
+  FormControlLabel,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 import CricketBallLoader from "../layouts/loader/Loader";
 import MetaData from "../layouts/MataData/MataData";
 import { Link } from "react-router-dom";
@@ -10,14 +17,11 @@ import { signUp, clearErrors } from "../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useAlert } from "react-alert";
 import { useHistory } from "react-router-dom";
-import Button from '@material-ui/core/Button';
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import useStyles from "./LoginFromStyle";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import Avatar from "@material-ui/core/Avatar";
-import Grid from "@material-ui/core/Grid";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 
 function Signup() {
   const classes = useStyles();
@@ -146,9 +150,9 @@ function Signup() {
       ) : (
         <div className={classes.formContainer}>
           <form className={classes.form}>
-            {/* <Avatar className={classes.avatar}>
+            <Avatar className={classes.avatar}>
               <LockOutlinedIcon />
-            </Avatar> */}
+            </Avatar>
             <Typography variant="h5" component="h1" className={classes.heading}>
               Sign Up for an Account ! 
             </Typography>
@@ -179,19 +183,18 @@ function Signup() {
                   : ""
               }
             />
-<InputLabel id="role-select-label" style={{ marginTop: '50px' }}>Role</InputLabel>
-<Select
-  labelId="role-select-label"
-  id="role-select"
-  value={role}
-  onChange={(e) => setRole(e.target.value)}
-  fullWidth
-  style={{ marginTop: '0px', marginBottom: '0px' }} // Inline styling for role select
->
-  <MenuItem value="user">Normal User</MenuItem>
-  <MenuItem value="admin">Admin</MenuItem>
-</Select>
-
+            <InputLabel id="role-select-label" style={{ marginTop: '50px' }}>Role</InputLabel>
+            <Select
+              labelId="role-select-label"
+              id="role-select"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              fullWidth
+              style={{ marginTop: '0px', marginBottom: '0px' }} // Inline styling for role select
+            >
+              <MenuItem value="user">Normal User</MenuItem>
+              <MenuItem value="admin">Admin</MenuItem>
+            </Select>
             <TextField
               label="Password"
               variant="outlined"
@@ -286,17 +289,6 @@ function Signup() {
                 />
               </Grid>
             </Grid>
-
-            {/*<Typography*/}
-            {/*  variant="body2"*/}
-            {/*  className={classes.termsAndConditionsText}*/}
-            {/*>*/}
-            {/*  I acknowledge this website will use my information in accordance*/}
-            {/*  with its*/}
-            {/*  <Link href="#" className={classes.privacyText}>*/}
-            {/*    Privacy Policy.*/}
-            {/*  </Link>*/}
-            {/*</Typography>*/}
 
             <Button
               variant="contained"
