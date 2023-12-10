@@ -67,17 +67,14 @@ function NewProduct() {
     fileInputRef.current.click();
   };
  const categories = [
-   "Cricket Kits",
-   "Batting Gloves",
-   "Batting Pads",
-   "Bats",
-   "Bags",
-   "Helmets",
-   "Balls",
-   "Stumps",
-   "Shoes",
-   "Clothing",
-   "Accessories",
+  "Computer Science",
+  "Programming",
+  "Software Development",
+  "Artificial Intelligence",
+  "Databases",
+  "Web Development",
+  "Networking",
+  "Operating Systems",
  ];
   useEffect(() => {
     if (error) {

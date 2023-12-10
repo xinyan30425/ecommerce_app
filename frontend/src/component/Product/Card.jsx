@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#414141",
   },
 
-
   subHeadings: {
     fontSize: "16px",
     color: "#414141",
