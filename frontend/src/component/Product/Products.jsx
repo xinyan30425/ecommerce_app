@@ -24,16 +24,14 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const categories = [
-  "Batting Gloves",
-  "Batting Pads",
-  "Bats",
-  "Bags",
-  "Helmets",
-  "Balls",
-  "Stumps",
-  "Shoes",
-  "Clothing",
-  "Accessories",
+  "Computer Science",
+  "Programming",
+  "Software Development",
+  "Artificial Intelligence",
+  "Databases",
+  "Web Development",
+  "Networking",
+  "Operating Systems",
 ];
 
 function Products() {
@@ -50,7 +48,8 @@ function Products() {
   const alert = useAlert();
 
   const [currentPage, setCurrentPage] = React.useState();
-  const [price, setPrice] = React.useState([0, 100000]); 
+
+  const [price, setPrice] = React.useState([0, 55]); // initial limit from min=0 to max=100000
   const [category, setCategory] = React.useState("");
   const [ratings, setRatings] = React.useState(0);
   const [selectedCategory, setSelectedCategory] = React.useState("");
@@ -78,16 +77,16 @@ function Products() {
 
 
 
-const [selectedRating, setSelectedRating] = React.useState("all");
+  const [selectedRating, setSelectedRating] = React.useState("all");
 
-const handleRatingChange = (event) => {
-  setRatings(event.target.value);
-  setSelectedRating(event.target.value);
-  // Trigger filtering with the selected rating value or perform any other action
-  
-};
+  const handleRatingChange = (event) => {
+    setRatings(event.target.value);
+    setSelectedRating(event.target.value);
+    // Trigger filtering with the selected rating value or perform any other action
 
- 
+  };
+
+
 
   return (
     <>
@@ -144,8 +143,8 @@ const handleRatingChange = (event) => {
                         value={price}
                         onChange={priceHandler}
                         min={0}
-                        max={100000}
-                        step={100}
+                        max={55}
+                        step={1}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
                       />
@@ -163,11 +162,11 @@ const handleRatingChange = (event) => {
                             selected !== "" ? selected : "min"
                           } // Display "min" as default label
                         >
-                          <MenuItem value={5000} className="menu_item">
-                            5000
+                          <MenuItem value={10} className="menu_item">
+                            10
                           </MenuItem>
-                          <MenuItem value={10000} className="menu_item">
-                            10000
+                          <MenuItem value={20} className="menu_item">
+                            20
                           </MenuItem>
                           {/* Add more options as per your requirement */}
                         </Select>
@@ -183,11 +182,11 @@ const handleRatingChange = (event) => {
                             selected !== "" ? selected : "max"
                           }
                         >
-                          <MenuItem value={50000} className="menu_item">
-                            50000
+                          <MenuItem value={55} className="menu_item">
+                            55
                           </MenuItem>
-                          <MenuItem value={20000} className="menu_item">
-                            20000
+                          <MenuItem value={45} className="menu_item">
+                            45
                           </MenuItem>
                           {/* Add more options as per your requirement */}
                         </Select>
@@ -282,24 +281,24 @@ const handleRatingChange = (event) => {
               </div>
 
               {/* Pagination */}
-       
-                <div className="paginationBox">
-                  <Pagination
-                    activePage={currentPage}
-                    itemsCountPerPage={resultPerPage}
-                    totalItemsCount={productsCount}
-                    onChange={setCurrentPageNoHandler}
-                    nextPageText="Next"
-                    prevPageText="Prev"
-                    firstPageText="First"
-                    lastPageText="Last"
-                    itemClass="page-item"
-                    linkClass="page-link"
-                    activeClass="pageItemActive"
-                    activeLinkClass="pageLinkActive"
-                  />
-                </div>
-             
+
+              <div className="paginationBox">
+                <Pagination
+                  activePage={currentPage}
+                  itemsCountPerPage={resultPerPage}
+                  totalItemsCount={productsCount}
+                  onChange={setCurrentPageNoHandler}
+                  nextPageText="Next"
+                  prevPageText="Prev"
+                  firstPageText="First"
+                  lastPageText="Last"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                  activeClass="pageItemActive"
+                  activeLinkClass="pageLinkActive"
+                />
+              </div>
+
             </div>
           )}
         </>

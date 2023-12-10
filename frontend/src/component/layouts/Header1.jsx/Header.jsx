@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import SearchBar from "./Searchbar";
 import "./Header.css";
@@ -6,172 +6,174 @@ import "./Header.css";
 import CartIcon from "./CartIcon";
 import FlagSelect from "../../Home/Flag";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import {Link} from "react-router-dom";
-import {useHistory} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Sidebar from "./Sidebar";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
 import ProfileModal from "./ProfileModel";
+import Search from "../../Search/search";
+import SearchAPI from "../../Search/search";
 
 function Header() {
-    const history = useHistory();
-    const {isAuthenticated, user} = useSelector((state) => state.userData);
+  const history = useHistory();
+  const { isAuthenticated, user } = useSelector((state) => state.userData);
 
-    const [searchBarActive, setSearchBarActive] = useState(false);
+  const [searchBarActive, setSearchBarActive] = useState(false);
 
-    const [country, setCountry] = useState("us"); // this is for flag
-    const [sideMenu, setSideMenu] = useState(false);
-    const [searchValue, setSearchValue] = useState("");
+  const [country, setCountry] = useState("us"); // this is for flag
+  const [sideMenu, setSideMenu] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
-    // this is for handle sideBar
-    const handleSideBarMenu = () => {
-        setSideMenu(!sideMenu);
-    };
+  // this is for handle sideBar
+  const handleSideBarMenu = () => {
+    setSideMenu(!sideMenu);
+  };
 
-    // this is for country selection
-    const handleCountryChange = (event) => {
-        setCountry(event.target.value);
-    };
+  // this is for country selection
+  const handleCountryChange = (event) => {
+    setCountry(event.target.value);
+  };
 
-    // this is for Search Button toggle
-    const handleSearchButtonClick = () => {
-        setSearchBarActive(!searchBarActive);
-    };
+  // this is for Search Button toggle
+  const handleSearchButtonClick = () => {
+    setSearchBarActive(!searchBarActive);
+  };
 
-    // this is for input value of Search bar.
-    const handleSearchInputChange = (event) => {
-        setSearchValue(event.target.value);
-    };
+  // this is for input value of Search bar.
+  const handleSearchInputChange = (event) => {
+    setSearchValue(event.target.value);
+  };
 
-    // this is for handle searching ...
-    const handleSearchFormSubmit = (event) => {
-        event.preventDefault();
-        if (searchValue.trim()) {
-            history.push(`/products/${searchValue}`);
-        } else {
-            history.push("/products");
-        }
-    };
+  // this is for handle searching ...
+  const handleSearchFormSubmit = (event) => {
+    event.preventDefault();
+    if (searchValue.trim()) {
+      history.push(`/products/${searchValue}`);
+    } else {
+      history.push("/products");
+    }
+  };
 
-    // this is for sideBar Toggle Button
-    const handleCrossButtonClick = () => {
-        setSearchValue("");
-        setSearchBarActive(!searchBarActive);
-    };
+  // this is for sideBar Toggle Button
+  const handleCrossButtonClick = () => {
+    setSearchValue("");
+    setSearchBarActive(!searchBarActive);
+  };
 
-    return (
-        <>
-            <div className="header">
-                <div className="headerTop">
-                    <div className="headerTopLeft">
-                        <p >Welcome to the Gateway of Innovation: Dive into the World of Computer Science and Unleash Your Potential with Our Curated Collection of Textbooks! </p>
-                    </div>
-                    <div className="headerTopRight">
-                        <div className="headerFlag">
+  return (
+    <>
+      <div className="header">
+        <div className="headerTop">
+          <div className="headerTopLeft">
+            <p >Welcome to the Gateway of Innovation: Dive into the World of Computer Science and Unleash Your Potential with Our Curated Collection of Textbooks! </p>
+          </div>
+          <div className="headerTopRight">
+            <div className="headerFlag">
               <span>
-                <FlagSelect value={country} onChange={handleCountryChange}/>
+                <FlagSelect value={country} onChange={handleCountryChange} />
               </span>
-                        </div>
+            </div>
 
-                        <div className="headerLogin">
-                            {isAuthenticated ? (
-                                <Link
-                                    to="/account"
-                                    style={{color: "black", textDecoration: "none"}}
-                                >
-                                    <button>My Account</button>
-                                </Link>
-                            ) : (
-                                <Link
-                                    to="/signup"
-                                    style={{color: "black", textDecoration: "none"}}
-                                >
-                                    <button >Sign Up</button>
-                                </Link>
-                            )}
-                        </div>
-                    </div>
-                </div>
+            <div className="headerLogin">
+              {isAuthenticated ? (
+                <Link
+                  to="/account"
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  <button>My Account</button>
+                </Link>
+              ) : (
+                <Link
+                  to="/signup"
+                  style={{ color: "black", textDecoration: "none" }}
+                >
+                  <button >Sign Up</button>
+                </Link>
+              )}
+            </div>
+          </div>
+        </div>
 
-                {/* nav */}
-                <div className="headerBottom">
-                    <div className="headerBottom__logo">
-                        <div className="header_mobile_menu">
+        {/* nav */}
+        <div className="headerBottom">
+          <div className="headerBottom__logo">
+            <div className="header_mobile_menu">
               <span>
                 <ReorderIcon
-                    onClick={() => setSideMenu(!sideMenu)}
-                    sx={{
-                        fontSize: 29,
-                        color: "black",
-                        "&:hover": {
-                            color: "#e7070f",
-                            cursor: "pointer",
-                        },
-                    }}
+                  onClick={() => setSideMenu(!sideMenu)}
+                  sx={{
+                    fontSize: 29,
+                    color: "black",
+                    "&:hover": {
+                      color: "#e7070f",
+                      cursor: "pointer",
+                    },
+                  }}
                 />
-                  {sideMenu && (
-                      <Sidebar
-                          handleSideBarMenu={handleSideBarMenu}
-                          isAuthenticated={isAuthenticated}
-                          user={user}
-                      />
-                  )}
+                {sideMenu && (
+                  <Sidebar
+                    handleSideBarMenu={handleSideBarMenu}
+                    isAuthenticated={isAuthenticated}
+                    user={user}
+                  />
+                )}
               </span>
-                            <span>
+              <span>
                 <SearchBar
-                    searchBarActive={searchBarActive}
-                    searchValue={searchValue}
-                    handleCrossButtonClick={handleCrossButtonClick}
-                    handleSearchButtonClick={handleSearchButtonClick}
-                    handleSearchInputChange={handleSearchInputChange}
-                    handleSearchFormSubmit={handleSearchFormSubmit}
+                  searchBarActive={searchBarActive}
+                  searchValue={searchValue}
+                  handleCrossButtonClick={handleCrossButtonClick}
+                  handleSearchButtonClick={handleSearchButtonClick}
+                  handleSearchInputChange={handleSearchInputChange}
+                  handleSearchFormSubmit={handleSearchFormSubmit}
                 />
               </span>
-                        </div>
-                    </div>
-                    {!searchBarActive && (
-                        <div className="headerBottom_navMenu">
-                            <ul>
-                                <li>
-                                    <Link to="/">Home</Link>
-                                </li>
+            </div>
+          </div>
+          {!searchBarActive && (
+            <div className="headerBottom_navMenu">
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
 
-                                <li>
-                                    <Link to="/products">Product</Link>
-                                </li>
-                            </ul>
-                        </div>
-                    )}
+                <li>
+                  <Link to="/products">Product</Link>
+                </li>
+              </ul>
+            </div>
+          )}
 
-                    {/* icons */}
+          {/* icons */}
 
-                    <div className="headerBotttom_icons">
-                        <div className="search_Bar">
-                            <SearchBar
-                                searchBarActive={searchBarActive}
-                                searchValue={searchValue}
-                                handleCrossButtonClick={handleCrossButtonClick}
-                                handleSearchButtonClick={handleSearchButtonClick}
-                                handleSearchInputChange={handleSearchInputChange}
-                                handleSearchFormSubmit={handleSearchFormSubmit}
-                            />
-                        </div>
-                        <span>
+          <div className="headerBotttom_icons">
+            <div className="search_Bar">
+              <SearchBar
+                searchBarActive={searchBarActive}
+                searchValue={searchValue}
+                handleCrossButtonClick={handleCrossButtonClick}
+                handleSearchButtonClick={handleSearchButtonClick}
+                handleSearchInputChange={handleSearchInputChange}
+                handleSearchFormSubmit={handleSearchFormSubmit}
+              />
+            </div>
+            <span>
               <Link
-                  to="/cart"
-                  style={{color: "none", textDecoration: "none"}}
+                to="/cart"
+                style={{ color: "none", textDecoration: "none" }}
               >
-                <CartIcon/>
+                <CartIcon />
               </Link>
             </span>
-                        <span>
-              <ProfileModal user={user} isAuthenticated={isAuthenticated}/>
+            <span>
+              <ProfileModal user={user} isAuthenticated={isAuthenticated} />
             </span>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Header;
