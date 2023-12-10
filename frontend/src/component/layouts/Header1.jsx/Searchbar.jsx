@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { SearchOutlined, CloseOutlined } from "@mui/icons-material";
 
 import "./Searchbar.css";
+import SearchAPI from '../../Search/search';
 
 const SearchBar = styled.div`
   display: flex;
@@ -70,6 +71,8 @@ const Search = ({
           <SearchButton onClick={handleCrossButtonClick}>
             <CloseOutlined fontSize="large" className="closeIcon" />
           </SearchButton>
+          <SearchAPI />
+
         </SearchBar>
       )}
     </>

@@ -27,6 +27,7 @@ import Cart from "./component/Cart/Cart";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 import MyOrder from "./component/order/MyOrder";
+import SearchAPI from "./component/Search/search";
 
 
 const LazyDashboard = React.lazy(() => import("./component/Admin/Dashboard"));
@@ -282,6 +283,17 @@ function App() {
               </>
             )}
           />
+
+          <Route exact path="/search" render={() => (
+            <>
+              <SearchAPI />
+            </>
+          )} />
+          <Route exact path="/search/:search" render={() => (
+            <>
+              <SearchAPI />
+            </>
+          )} />
 
           <Route
             exact
